@@ -20,8 +20,6 @@ const goToDetail = (id) => {
 
 }
 
-
-
     return (
         <main>
             <h1>MovieList</h1>
