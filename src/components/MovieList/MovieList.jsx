@@ -17,8 +17,7 @@ function MovieList() {
 const goToDetail = (id) => {
     console.log(id,'hereee')
     history.push(`/details/${id}`)
-
-}
+}//used to go to each movie details
 
     return (
         <main>

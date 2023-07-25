@@ -50,8 +50,26 @@ function* fetchAllMovies() {
     }
 }
 
+function* fetchAllGenres() {
+    //get all genres from the DB
+    try {
+        const response = yield fetch('/api/genre');
+        if (!response.ok) {
+            throw new Error("Network response was not OK");
+        }
+        const genres = yield response.json();
+        console.log('javi',genres[0]); 
+        yield put({ type:'SET_GENRES', payload: genres});
+    } catch (error) {
+        console.log("error fetcing genres", error);
+        alert('Something went wrong.')
+      }
+}
+
+
 function* watcherSaga() {
     yield takeEvery('FETCH_MOVIES', fetchAllMovies);
+    yield takeEvery('FETCH_GENRES', fetchAllGenres);
 }
 
 sagaMiddleware.run(watcherSaga);

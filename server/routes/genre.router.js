@@ -2,6 +2,19 @@ const express = require('express');
 const router = express.Router();
 const pool = require('../modules/pool')
 
+router.get('/', (req, res) => {
+
+  const query = `SELECT * FROM genres ORDER BY "name" ASC`;
+  pool.query(query)
+    .then( result => {
+      res.send(result.rows);
+    })
+    .catch(err => {
+      console.log('ERROR: Get all genres', err);
+      res.sendStatus(500)
+    })
+
+});
 
 router.get("/details/:id", (req, res) => {
   // const queryText = "SELECT * FROM genres WHERE id=$1";
@@ -24,6 +37,7 @@ router.get("/details/:id", (req, res) => {
 });
 
 module.exports = router;
+
 
 
 // router.get('/', (req, res) => {
