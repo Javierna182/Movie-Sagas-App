@@ -50,10 +50,12 @@ function* fetchAllMovies() {
     }
 }
 
-function* fetchAllGenres() {
+function* fetchAllGenres(action) {
     //get all genres from the DB
+    console.log('aca', action.payload)
+    let id = action.payload.id
     try {
-        const response = yield fetch('/api/genre');
+        const response = yield fetch(`/api/genre/details/${id}`);
         if (!response.ok) {
             throw new Error("Network response was not OK");
         }

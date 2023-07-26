@@ -17,7 +17,7 @@ const history = useHistory();
 const dispatch = useDispatch();
 
 useEffect(() => {
-    dispatch({ type: "FETCH_GENRES"});
+    dispatch({ type: "FETCH_GENRES", payload:movie});
 }, []);
 
 const goToHome = () => {
@@ -25,12 +25,22 @@ const goToHome = () => {
 }
     return (
         <div>
-            {/* {genres} */}
+            {JSON.stringify(genres)}
+            {/* <h1>{genre.id}</h1> */}
+            
             <h1>Title {movie.title}</h1>
             <img src={movie.poster} alt={movie.title}/>
             <h1>Description: {movie.description}</h1>
             <button onClick={goToHome}>HOME</button>
-            {/* <h1>{genre.id}</h1> */}
+
+            {/* <section className="genres">
+                {genres.map(genre=> {
+                    return (
+                        <div key={genre}>
+                        </div>
+                    )
+                })}
+            </section> */}
         </div>
 
     );
