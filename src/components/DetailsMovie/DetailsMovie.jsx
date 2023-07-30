@@ -25,22 +25,22 @@ const goToHome = () => {
 }
     return (
         <div>
-            {JSON.stringify(genres)}
+            {/* {JSON.stringify(genres)} */}
             {/* <h1>{genre.id}</h1> */}
             
             <h1>Title {movie.title}</h1>
             <img src={movie.poster} alt={movie.title}/>
             <h1>Description: {movie.description}</h1>
             <button onClick={goToHome}>HOME</button>
-
-            {/* <section className="genres">
-                {genres.map(genre=> {
-                    return (
-                        <div key={genre}>
-                        </div>
-                    )
-                })}
-            </section> */}
+            <ul>
+                {
+                    genres.map(genresToDisplay => <div key={genresToDisplay}>
+                        <li>
+                        {genresToDisplay.name}
+                            </li>
+                        </div>)
+                }
+            </ul>
         </div>
 
     );
