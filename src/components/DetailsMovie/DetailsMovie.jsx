@@ -31,16 +31,16 @@ const goToHome = () => {
             <h1>Title {movie.title}</h1>
             <img src={movie.poster} alt={movie.title}/>
             <h1>Description: {movie.description}</h1>
-            <button onClick={goToHome}>HOME</button>
             <ul>
                 {
-                    genres.map(genresToDisplay => <div key={genresToDisplay}>
+                    genres.map(genresToDisplay => <div key={genresToDisplay.name}>
                         <li>
                         {genresToDisplay.name}
                             </li>
                         </div>)
                 }
             </ul>
+            <button onClick={goToHome}>HOME</button>
         </div>
 
     );
