@@ -3,6 +3,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
+import Button from '@mui/material/Button';
+import { styled } from '@mui/material/styles';
+import Grid from '@mui/material/Grid';
+import Paper from '@mui/material/Paper';
+import Box from '@mui/material/Box';
+
 
 function DetailsMovie() {
 
@@ -23,14 +29,22 @@ useEffect(() => {
 const goToHome = () => {
     history.push(`/`)
 }
+
+const Item = styled(Paper)(({ theme }) => ({
+    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+    ...theme.typography.body2,
+    padding: theme.spacing(0),
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
+  }));
+
+  const [spacing, setSpacing] = React.useState(2);
     return (
-        <div>
-            {/* {JSON.stringify(genres)} */}
-            {/* <h1>{genre.id}</h1> */}
-            
+        <Box sx={{ width: '100%' }} key={movie.id} >
+            <Grid container justifyContent="center" spacing={spacing}>
+            <Grid item xs={6}>
+            <Item>
             <h1>Title {movie.title}</h1>
-            <img src={movie.poster} alt={movie.title}/>
-            <h1>Description: {movie.description}</h1>
             <ul>
                 {
                     genres.map(genresToDisplay => <div key={genresToDisplay.name}>
@@ -40,8 +54,13 @@ const goToHome = () => {
                         </div>)
                 }
             </ul>
-            <button onClick={goToHome}>HOME</button>
-        </div>
+                <img src={movie.poster} alt={movie.title}/>
+                <h1>Description: {movie.description}</h1>
+            <Button variant="contained" type="submit" onClick={goToHome}>HOME</Button>
+            </Item>
+            </Grid>
+            </Grid>
+        </Box>
 
     );
 }

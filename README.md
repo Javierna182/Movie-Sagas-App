@@ -23,6 +23,7 @@ This view displays all of the movies in the movie database.
 
  - Home page
 ![home](wireframes/img1.png)
+![home](wireframes/img2.png)
 
 ### Details Page
 
@@ -31,8 +32,8 @@ This shows all details **including ALL genres** for the selected movie, includin
 - The details page has a `Back to List` button, which brings the user to the Home/List Page.
 
 - Details page
-![Details](wireframes/img2.png)
 ![Details](wireframes/img3.png)
+![Details](wireframes/img4.png)
 
 ## Credits
 
